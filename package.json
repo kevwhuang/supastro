@@ -1,0 +1,16 @@
+{
+    "name": "supastro",
+    "version": "24.11.22",
+    "author": "Kevin Huang",
+    "scripts": {
+        "go": "bun --watch supabase/index.ts",
+        "lint": "bunx eslint & bunx typescript"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "latest"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@typescript-eslint/parser": "latest"
+    }
+}
