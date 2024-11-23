@@ -1,10 +1,12 @@
-CREATE
-OR REPLACE VIEW public.view_users_basic WITH (security_invoker = ON) AS
+CREATE VIEW view_users_basic AS
 SELECT
     email,
+    phone,
+    currency,
     subscriber,
-    private
+    private,
+    created_at
 FROM
-    public.users
+    users
 ORDER BY
     email;

@@ -1,16 +1,15 @@
-CREATE
-OR REPLACE FUNCTION public.query_stats () RETURNS VOID LANGUAGE plpgsql
+CREATE FUNCTION fn_query_stats () RETURNS VOID LANGUAGE plpgsql
 SET
-    search_path = '' AS $$ BEGIN
+    search_path = 'public' AS $$ BEGIN
 INSERT INTO
-    public.stats (users, phones, bank, subscribers, years)
+    stats (users, phones, bank, subscribers, years)
 SELECT
     COUNT(*),
     COUNT(phone),
     SUM(currency),
-    SUM(
+    COUNT(
         CASE
-            WHEN subscriber = TRUE THEN 1
+            WHEN subscriber THEN 1
             ELSE 0
         END
     ),
@@ -22,6 +21,5 @@ SELECT
         )
     ) / 365
 FROM
-    public.users;
-END;
-$$;
+    users;
+END $$;

@@ -1,14 +1,10 @@
-DROP TABLE IF EXISTS public.settings CASCADE;
-
-CREATE TABLE public.settings (
-    id INT NOT NULL,
-    theme public.theme NOT NULL DEFAULT 'light' :: theme,
-    auto_renew BOOLEAN NOT NULL DEFAULT TRUE,
-    notifications SMALLINT NOT NULL DEFAULT '255' :: SMALLINT,
-    CONSTRAINT settings_pkey PRIMARY KEY (id),
-    CONSTRAINT settings_id_fkey FOREIGN KEY (id) REFERENCES users (id) ON DELETE CASCADE,
-    CONSTRAINT notifications_range CHECK (
-        notifications >= 0
-        AND notifications <= 255
-    )
-) TABLESPACE pg_default;
+CREATE TABLE settings (
+    id BIGINT PRIMARY KEY,
+    theme enum_theme DEFAULT 'light',
+    auto_renew BOOLEAN DEFAULT TRUE,
+    notifications SMALLINT DEFAULT 255 CHECK (
+        notifications BETWEEN 0
+        AND 255
+    ),
+    CONSTRAINT settings_id_fkey FOREIGN KEY (id) REFERENCES users (id) ON DELETE CASCADE
+);

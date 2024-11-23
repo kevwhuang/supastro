@@ -1,9 +1,9 @@
 export async function generatePasswordHash(): Promise<string> {
     let password = '';
-    const len = 8 + 93 * Math.random() >> 0;
+    const len = 8 + (93 * Math.random() >> 0);
 
     while (password.length < len) {
-        password += String.fromCharCode(33 + 94 * Math.random() >> 0);
+        password += String.fromCharCode(33 + (94 * Math.random() >> 0));
     }
 
     return await Bun.password.hash(password);

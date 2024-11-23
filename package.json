@@ -1,6 +1,6 @@
 {
     "name": "supastro",
-    "version": "24.11.22",
+    "version": "24.11.23",
     "author": "Kevin Huang",
     "scripts": {
         "go": "bun --watch supabase/index.ts",
