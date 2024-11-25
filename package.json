@@ -1,16 +1,17 @@
 {
     "name": "supastro",
-    "version": "24.11.23",
+    "version": "24.11.25",
     "author": "Kevin Huang",
     "scripts": {
-        "go": "bun --watch supabase/index.ts",
-        "lint": "bunx eslint & bunx typescript"
+        "lint": "eslint & tsc"
     },
     "dependencies": {
         "@supabase/supabase-js": "latest"
     },
     "devDependencies": {
+        "@stylistic/eslint-plugin": "latest",
         "@types/bun": "latest",
-        "@typescript-eslint/parser": "latest"
+        "@typescript-eslint/parser": "latest",
+        "eslint": "latest"
     }
 }

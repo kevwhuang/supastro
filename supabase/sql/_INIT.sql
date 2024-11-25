@@ -75,6 +75,11 @@ CREATE TABLE stats (
     queried_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+CREATE TABLE test (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    text TEXT CHECK (LENGTH(text) <= 10)
+);
+
 CREATE VIEW view_users_basic AS
 SELECT
     email,
@@ -134,6 +139,34 @@ CREATE TRIGGER trg_copy_deleted_user
 AFTER
     DELETE ON users FOR EACH ROW EXECUTE FUNCTION fn_copy_deleted_user();
 
+GRANT USAGE ON SCHEMA public TO anon,
+authenticated,
+service_role;
+
+GRANT ALL ON ALL TABLES IN SCHEMA public TO anon,
+authenticated,
+service_role;
+
+GRANT ALL ON ALL ROUTINES IN SCHEMA public TO anon,
+authenticated,
+service_role;
+
+GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO anon,
+authenticated,
+service_role;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES TO anon,
+authenticated,
+service_role;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON ROUTINES TO anon,
+authenticated,
+service_role;
+
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES TO anon,
+authenticated,
+service_role;
+
 ALTER TABLE
     users ENABLE ROW LEVEL SECURITY;
 
@@ -149,9 +182,53 @@ ALTER TABLE
 ALTER TABLE
     stats ENABLE ROW LEVEL SECURITY;
 
+ALTER TABLE
+    test ENABLE ROW LEVEL SECURITY;
+
 ALTER VIEW view_users_basic
 SET
     (security_invoker = ON);
 
+CREATE POLICY users_all ON users AS PERMISSIVE FOR ALL TO public USING (TRUE);
+
+CREATE POLICY users_deleted_select ON users_deleted AS PERMISSIVE FOR
 SELECT
-    fn_query_stats();
+    TO public USING (TRUE);
+
+CREATE POLICY users_deleted_insert ON users_deleted AS PERMISSIVE FOR
+INSERT
+    TO public WITH CHECK (TRUE);
+
+CREATE POLICY settings_select ON settings AS PERMISSIVE FOR
+SELECT
+    TO public USING (TRUE);
+
+CREATE POLICY settings_insert ON settings AS PERMISSIVE FOR
+INSERT
+    TO public WITH CHECK (TRUE);
+
+CREATE POLICY settings_update ON settings AS PERMISSIVE FOR
+UPDATE
+    TO public USING (TRUE);
+
+CREATE POLICY profiles_select ON profiles AS PERMISSIVE FOR
+SELECT
+    TO public USING (TRUE);
+
+CREATE POLICY profiles_insert ON profiles AS PERMISSIVE FOR
+INSERT
+    TO public WITH CHECK (TRUE);
+
+CREATE POLICY profiles_update ON profiles AS PERMISSIVE FOR
+UPDATE
+    TO public USING (TRUE);
+
+CREATE POLICY stats_select ON stats AS PERMISSIVE FOR
+SELECT
+    TO public USING (TRUE);
+
+CREATE POLICY stats_insert ON stats AS PERMISSIVE FOR
+INSERT
+    TO public WITH CHECK (TRUE);
+
+CREATE POLICY test_all ON test AS PERMISSIVE FOR ALL TO public USING (TRUE);

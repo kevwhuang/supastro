@@ -118,6 +118,21 @@ export type Database = {
                 }
                 Relationships: []
             }
+            test: {
+                Row: {
+                    id: number
+                    text: string | null
+                }
+                Insert: {
+                    id?: never
+                    text?: string | null
+                }
+                Update: {
+                    id?: never
+                    text?: string | null
+                }
+                Relationships: []
+            }
             users: {
                 Row: {
                     created_at: string | null
