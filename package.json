@@ -1,17 +1,18 @@
 {
     "name": "supastro",
-    "version": "24.11.25",
+    "version": "24.12.1",
     "author": "Kevin Huang",
     "scripts": {
-        "lint": "eslint & tsc"
+        "lint": "bun eslint && bun tsc"
     },
     "dependencies": {
-        "@supabase/supabase-js": "latest"
+        "@supabase/supabase-js": "latest",
+        "astro": "latest",
+        "react": "latest"
     },
     "devDependencies": {
-        "@stylistic/eslint-plugin": "latest",
+        "@aephonics/config": "latest",
         "@types/bun": "latest",
-        "@typescript-eslint/parser": "latest",
-        "eslint": "latest"
+        "@types/react": "latest"
     }
 }

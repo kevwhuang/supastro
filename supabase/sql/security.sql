@@ -1,0 +1,18 @@
+ALTER TABLE
+    users ENABLE ROW LEVEL SECURITY;
+
+ALTER TABLE
+    users_deleted ENABLE ROW LEVEL SECURITY;
+
+ALTER TABLE
+    settings ENABLE ROW LEVEL SECURITY;
+
+ALTER TABLE
+    profiles ENABLE ROW LEVEL SECURITY;
+
+ALTER TABLE
+    stats ENABLE ROW LEVEL SECURITY;
+
+ALTER VIEW view_users_basic
+SET
+    (security_invoker = ON);
