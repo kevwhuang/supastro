@@ -10,3 +10,4 @@ FROM
     users
 ORDER BY
     email;
+    

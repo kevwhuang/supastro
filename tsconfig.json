@@ -83,11 +83,15 @@
         "rootDir": ".",
         "target": "esnext",
         "lib": [
-            "dom",
             "dom.iterable",
+            "dom",
             "esnext",
             "scripthost",
             "webworker",
+        ],
+        "types": [
+            "bun-types",
+            "vite/client",
         ],
     },
 }

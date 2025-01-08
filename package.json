@@ -1,18 +1,38 @@
 {
     "name": "supastro",
-    "version": "24.12.1",
+    "version": "25.1.8",
     "author": "Kevin Huang",
     "scripts": {
-        "lint": "bun eslint && bun tsc"
+        "build": "vite build",
+        "lint": "bun tsc & bun eslint",
+        "start": "vite"
     },
     "dependencies": {
         "@supabase/supabase-js": "latest",
         "astro": "latest",
-        "react": "latest"
+        "react-dom": "latest",
+        "react-router-dom": "latest",
+        "react": "latest",
+        "uuid": "latest",
+        "zustand": "latest"
     },
     "devDependencies": {
         "@aephonics/config": "latest",
+        "@testing-library/jest-dom": "latest",
+        "@testing-library/react": "latest",
         "@types/bun": "latest",
-        "@types/react": "latest"
+        "@types/react-dom": "latest",
+        "@types/react-router-dom": "latest",
+        "@types/react": "latest",
+        "@types/uuid": "latest",
+        "@vite-pwa/astro": "latest",
+        "@vitejs/plugin-react-swc": "latest",
+        "autoprefixer": "latest",
+        "eslint": "latest",
+        "jsdom": "latest",
+        "sass": "latest",
+        "typescript": "latest",
+        "vite-plugin-pwa": "latest",
+        "vite": "latest"
     }
 }

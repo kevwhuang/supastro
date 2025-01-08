@@ -26,11 +26,10 @@ describe('Database', () => {
 });
 
 async function select1(): Promise<void> {
-    const query = ''
-        + 'registered:created_at,email,phone,currency'
-        + ',settings!inner(notifications),profiles!inner(*)';
+    let query = 'registered:created_at,email,phone,currency';
+    query += ',settings!inner(notifications),profiles!inner(*)';
 
-    const { data, count, status } = await supabase
+    const { count, data, status } = await supabase
         .from('users')
         .select(query, { count: 'exact' })
         .eq('settings.theme', 'dark')
@@ -41,7 +40,7 @@ async function select1(): Promise<void> {
         .lte('profiles.birth_year', 2020)
         .gt('settings.notifications', 1)
         .gte('profiles.birth_year', 1950)
-        .match({ private: false, 'settings.auto_renew': false })
+        .match({ 'private': false, 'settings.auto_renew': false })
         .or('email.like.%com,email.ilike.%ORG')
         .order('phone', { nullsFirst: true })
         .order('currency', { ascending: false })
@@ -53,7 +52,7 @@ async function select1(): Promise<void> {
 }
 
 async function select2(): Promise<void> {
-    const { data, count, status } = await supabase
+    const { count, data, status } = await supabase
         .from('users')
         .select('', { count: 'exact' })
         .csv();
