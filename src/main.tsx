@@ -15,14 +15,15 @@ import Unknown from './pages/Unknown';
 import './styles/rectify.scss';
 import './styles/main.scss';
 import './styles/media.scss';
+import './styles/tablet.scss';
 import './styles/mobile.scss';
 import './styles/keyframes.scss';
 import './styles/dev.scss';
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Display />} errorElement={<Error />} path="">
-        <Route element={<Home />} index />
         <Route element={<Error />} path="error" />
+        <Route element={<Home />} index />
         <Route element={<Unknown />} path="*" />
     </Route>,
 ));

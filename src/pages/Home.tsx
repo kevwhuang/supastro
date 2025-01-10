@@ -4,7 +4,9 @@ import '../styles/pages/Home.scss';
 
 function Home(): React.ReactElement {
     return (
-        <main id="home" />
+        <main id="home">
+            <title>Home</title>
+        </main>
     );
 }
 

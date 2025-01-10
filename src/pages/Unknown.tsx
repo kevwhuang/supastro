@@ -4,7 +4,9 @@ import '../styles/pages/Unknown.scss';
 
 function Unknown(): React.ReactElement {
     return (
-        <main id="unknown" />
+        <main id="unknown">
+            <title>Unknown</title>
+        </main>
     );
 }
 

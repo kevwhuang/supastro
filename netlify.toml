@@ -15,7 +15,7 @@ X-Content-Type-Options = 'nosniff'
 X-Frame-Options = 'SAMEORIGIN'
 
 [[headers]]
-for = '/assets/*'
+for = '/public/*'
 [headers.values]
 cache-control = '''
     max-age=31536000

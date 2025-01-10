@@ -71,7 +71,7 @@
         "verbatimModuleSyntax": true,
         "maxNodeModuleJsDepth": 0,
         "baseUrl": "./",
-        "declarationDir": "./types",
+        "declarationDir": "dist",
         "generateCpuProfile": "cpuprofile",
         "jsx": "react-jsx",
         "jsxImportSource": "react",

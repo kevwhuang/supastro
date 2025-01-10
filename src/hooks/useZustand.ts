@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
-const initialize: ZustandState = {
+const init: ZustandState = {
 };
 
 const useZustand = create<ZustandActions & ZustandState>(() => ({
-    ...initialize,
+    ...init,
 }));
 
 export default useZustand;

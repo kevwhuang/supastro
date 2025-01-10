@@ -1,6 +1,7 @@
 import { eslint } from '@aephonics/config';
 
 const ignores = [
+    'dist/**',
     'supabase/types/database.d.ts',
 ];
 
@@ -10,7 +11,7 @@ const globals = [
 
 const overrides = [
     {
-        files: ['**/*.{js,jsx,mjs,ts,tsx}'],
+        files: ['**/*.{ts,tsx}'],
         ignores: [...ignores],
         rules: {
             '@tslint/no-empty-object-type': 0,
