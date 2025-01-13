@@ -1,22 +1,19 @@
 import { eslint } from '@aephonics/config';
 
 const ignores = [
+    '**/*.d.ts',
     'dist/**',
-    'supabase/types/database.d.ts',
 ];
 
 const globals = [
-    '',
+    'ZustandActions',
+    'ZustandState',
 ];
 
 const overrides = [
     {
-        files: ['**/*.{ts,tsx}'],
-        ignores: [...ignores],
-        rules: {
-            '@tslint/no-empty-object-type': 0,
-            'no-undef': 0,
-        },
+        files: [''],
+        rules: {},
     },
 ];
 
