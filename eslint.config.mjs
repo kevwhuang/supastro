@@ -1,24 +1,24 @@
 import { eslint } from '@aephonics/config';
 
-const ignores = [
-    '**/*.d.ts',
-    'dist/**',
-];
-
-const globals = [
-    'ZustandActions',
-    'ZustandState',
-];
-
 const overrides = [
     {
-        files: [''],
+        files: ['**/*.{ts,tsx,astro}'],
+        languageOptions: {
+            globals: {
+                ZustandActions: true,
+                ZustandState: true,
+            },
+        },
         rules: {},
     },
 ];
 
-ignores.forEach(e => eslint[0].ignores.push(e));
-globals.forEach(e => (eslint[0].languageOptions.globals[e] = true));
-overrides.forEach(e => eslint.push(e));
+const ignores = [
+    'dist/**',
+    'supabase/types/database.d.ts',
+];
+
+eslint.push(...overrides);
+eslint.forEach(e => (e.ignores = ignores));
 
 export default eslint;

@@ -1,6 +1,6 @@
 {
     "name": "supastro",
-    "version": "25.1.13",
+    "version": "25.1.20",
     "author": "Kevin Huang",
     "scripts": {
         "build": "vite build",
@@ -20,18 +20,14 @@
         "@aephonics/config": "latest",
         "@testing-library/jest-dom": "latest",
         "@testing-library/react": "latest",
-        "@types/bun": "latest",
-        "@types/react": "latest",
         "@types/react-dom": "latest",
         "@types/react-router-dom": "latest",
         "@types/uuid": "latest",
         "@vite-pwa/astro": "latest",
         "@vitejs/plugin-react-swc": "latest",
         "autoprefixer": "latest",
-        "eslint": "latest",
         "jsdom": "latest",
         "sass": "latest",
-        "typescript": "latest",
         "vite": "latest",
         "vite-plugin-pwa": "latest"
     }

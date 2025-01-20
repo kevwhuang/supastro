@@ -9,7 +9,7 @@
         "allowUnusedLabels": false,
         "alwaysStrict": true,
         "assumeChangesOnlyAffectDirectDependencies": true,
-        "checkJs": true,
+        "checkJs": false,
         "composite": false,
         "declaration": true,
         "declarationMap": true,
@@ -89,14 +89,13 @@
             "scripthost",
             "webworker",
         ],
-        "types": [
-            "bun-types",
-            "vite/client",
-        ],
         "paths": {
             "react": [
                 "node_modules/@types/react",
             ],
         },
+        "types": [
+            "bun-types",
+        ],
     },
 }
