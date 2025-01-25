@@ -1,4 +1,7 @@
-**/.DS_Store
+*.ds_store
+.astro/
 .env
+.netlify/
+certs/
 dist/
 node_modules/

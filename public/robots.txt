@@ -1,4 +1,0 @@
-Allow: /
-Disallow:
-Sitemap: https://supastro.netlify.app/sitemap.xml
-User-agent: *

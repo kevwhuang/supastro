@@ -1,28 +1,37 @@
 [build]
-command = 'npm run build'
+command = 'bun run build'
+functions = 'netlify/functions'
 publish = 'dist'
+[build.processing.html]
+pretty_urls = true
 
 [dev]
-port = 4000
-targetPort = 3000
+autoLaunch = true
+command = 'bun dev'
+framework = '#custom'
+functionsPort = 5001
+port = 5000
+publish = 'dist'
+targetPort = 4321
+[dev.https]
+certFile = 'certs/cert.pem'
+keyFile = 'certs/key.pem'
 
 [[headers]]
 for = '/*'
 [headers.values]
-Access-Control-Allow-Origin = '*'
-Referrer-Policy = 'same-origin'
-X-Content-Type-Options = 'nosniff'
-X-Frame-Options = 'SAMEORIGIN'
-
-[[headers]]
-for = '/public/*'
-[headers.values]
-cache-control = '''
-    max-age=31536000
-    immutable
-    '''
+access-control-allow-origin = '*'
+referrer-policy = 'same-origin'
+x-content-type-options = 'nosniff'
+x-frame-options = 'sameorigin'
 
 [[headers]]
 for = '/manifest.webmanifest'
 [headers.values]
-Content-Type = 'application/manifest+json'
+content-type = 'application/manifest+json'
+
+[[redirects]]
+force = true
+from = '/home'
+status = 200
+to = '/'

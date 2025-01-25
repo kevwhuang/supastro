@@ -1,5 +1,0 @@
-interface ZustandActions {
-}
-
-interface ZustandState {
-}

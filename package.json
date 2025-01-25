@@ -1,34 +1,32 @@
 {
     "name": "supastro",
-    "version": "25.1.20",
+    "version": "25.1.24",
     "author": "Kevin Huang",
     "scripts": {
-        "build": "vite build",
+        "build": "astro build",
+        "dev": "astro dev",
+        "gen": "bunx @vite-pwa/assets-generator --preset minimal-2023 public/favicon.svg",
+        "gen-types": "supabase gen types typescript --project-id jxjkszzepfstlzmyrspl > supabase/types/database.d.ts",
         "lint": "bun tsc & bun eslint",
-        "start": "vite"
+        "start": "ntl dev"
     },
     "dependencies": {
         "@supabase/supabase-js": "latest",
         "astro": "latest",
-        "react": "latest",
-        "react-dom": "latest",
-        "react-router-dom": "latest",
-        "uuid": "latest",
-        "zustand": "latest"
+        "react": "latest"
     },
     "devDependencies": {
         "@aephonics/config": "latest",
-        "@testing-library/jest-dom": "latest",
-        "@testing-library/react": "latest",
-        "@types/react-dom": "latest",
-        "@types/react-router-dom": "latest",
-        "@types/uuid": "latest",
+        "@astrojs/netlify": "latest",
+        "@astrojs/react": "latest",
+        "@astrojs/sitemap": "latest",
+        "@netlify/edge-functions": "latest",
+        "@sentry/astro": "latest",
         "@vite-pwa/astro": "latest",
-        "@vitejs/plugin-react-swc": "latest",
-        "autoprefixer": "latest",
-        "jsdom": "latest",
-        "sass": "latest",
-        "vite": "latest",
-        "vite-plugin-pwa": "latest"
+        "@vitejs/plugin-basic-ssl": "latest",
+        "astro-compressor": "latest",
+        "astro-robots-txt": "latest",
+        "netlify-cli": "latest",
+        "sass": "latest"
     }
 }

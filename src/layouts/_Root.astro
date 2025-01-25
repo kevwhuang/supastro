@@ -1,0 +1,45 @@
+---
+import '@/styles/rectify.scss';
+import '@/styles/index.scss';
+import '@/styles/media.scss';
+import '@/styles/keyframes.scss';
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <title>{title}</title>
+        <meta charset="utf-8" />
+        <meta content="Kevin Huang" name="author" />
+        <meta content="ie=edge" http-equiv="x-ua-compatible" />
+        <meta content="index,follow" name="robots" />
+        <meta content="white" name="theme-color" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <meta content={description} name="description" />
+
+        <link
+            as="style"
+            href="https://fonts.cdnfonts.com/css/sf-pro-display"
+            onload="this.onload=null;this.rel='stylesheet'"
+            rel="preload"
+        />
+
+        <link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" />
+        <link href="/favicon.ico" rel="icon" sizes="48x48" />
+        <link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+        <link href="/manifest.webmanifest" rel="manifest" />
+    </head>
+
+    <body>
+        <slot />
+    </body>
+</html>
+
+<style lang="scss">
+    body {
+        background: var(--c1);
+        font-family: 'sf pro display', 'helvetica neue', sans-serif;
+    }
+</style>

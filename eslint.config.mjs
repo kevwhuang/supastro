@@ -4,16 +4,15 @@ const overrides = [
     {
         files: ['**/*.{ts,tsx,astro}'],
         languageOptions: {
-            globals: {
-                ZustandActions: true,
-                ZustandState: true,
-            },
+            globals: {},
         },
         rules: {},
     },
 ];
 
 const ignores = [
+    '.astro/**',
+    '.netlify/**',
     'dist/**',
     'supabase/types/database.d.ts',
 ];
